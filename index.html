@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Road Accident Analysis Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: #f5f0fa;
+    color: #2c003e;
+  }
+
+  header {
+    background: linear-gradient(90deg, #6a0dad, #b266ff);
+    color: white;
+    padding: 25px;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2.2em;
+  }
+
+  h1 i {
+    animation: spin 5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+  }
+
+  p.subtitle {
+    margin: 5px 0 0;
+    font-size: 1.1em;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    z-index: 100;
+  }
+
+  nav button {
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(45deg, #6a0dad, #b266ff);
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  nav button i {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-5px);}
+  }
+
+  nav button:hover {
+    background: linear-gradient(45deg, #4b0082, #d580ff);
+  }
+
+  section {
+    margin: 30px auto;
+    max-width: 1000px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    border-bottom: 3px solid #b266ff;
+    padding-bottom: 5px;
+    color: #6a0dad;
+  }
+
+  .card {
+    background: #f4e6ff;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 6px solid #6a0dad;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    background: #e0cfff;
+  }
+
+  img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .collapsible {
+    background-color: #b266ff;
+    color: white;
+    cursor: pointer;
+    padding: 12px 18px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .collapsible:hover {
+    background-color: #6a0dad;
+  }
+
+  .content {
+    padding: 0 15px;
+    display: none;
+    overflow: hidden;
+    background-color: #faf0ff;
+    margin-bottom: 10px;
+    border-radius: 12px;
+  }
+
+  .conclusion {
+    background: linear-gradient(90deg, #6a0dad, #b266ff);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .conclusion span {
+    color: #ffd700;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><i class="fas fa-car-crash"></i> Road Accident Analysis in India</h1>
+  <p class="subtitle">Interactive Data Visualization Portfolio</p>
+</header>
+
+<nav>
+  <button onclick="scrollToSection('sheets')"><i class="fas fa-chart-line"></i> Sheets</button>
+  <button onclick="scrollToSection('dashboards')"><i class="fas fa-tachometer-alt"></i> Dashboards</button>
+  <button onclick="scrollToSection('stories')"><i class="fas fa-book-open"></i> Stories</button>
+</nav>
+
+<section id="problem">
+  <h2><i class="fas fa-exclamation-triangle"></i> Problem Statement</h2>
+  <p>Road accidents are a major public safety concern in India, leading to many fatalities and injuries every year. Despite improvements in infrastructure and traffic regulations, accident rates remain high due to multiple factors such as time, location, vehicle type, and environmental conditions.</p>
+  <p>This project uses data visualization to identify accident patterns and uncover high-risk conditions contributing to severe accidents.</p>
+</section>
+
+<section id="dataset">
+  <h2><i class="fas fa-database"></i> Dataset Information</h2>
+  <ul>
+    <li>Date and time of accident</li>
+    <li>State and city information</li>
+    <li>Accident severity</li>
+    <li>Number of fatalities and casualties</li>
+    <li>Vehicle type involved</li>
+    <li>Weather and road conditions</li>
+  </ul>
+  <p>Accident frequency is calculated by counting the number of records.</p>
+</section>
+
+<section id="sheets">
+  <h2><i class="fas fa-chart-bar"></i> Individual Sheets (Charts)</h2>
+
+  <!-- Sheet 1 -->
+  <button class="collapsible"><i class="fas fa-calendar-alt"></i> Sheet 1: Year-wise Accident Trend</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> To understand accident frequency over time.</div>
+    <div class="card">Insight: Accident counts fluctuate across years, showing inconsistent safety improvements.</div>
+    <img src="st1.png" alt="Year-wise Accident Trend">
+  </div>
+
+  <!-- Sheet 2 -->
+  <button class="collapsible"><i class="fas fa-calendar-day"></i> Sheet 2: Accidents by Day of Week</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> To identify risky weekdays.</div>
+    <div class="card">Insight: Certain weekdays have higher accident occurrences due to traffic volume.</div>
+    <img src="st2.png" alt="Accidents by Day">
+  </div>
+
+  <!-- Sheet 3 -->
+  <button class="collapsible"><i class="fas fa-clock"></i> Sheet 3: Accidents by Time of Day</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> Analyze accident patterns based on time and visibility.</div>
+    <div class="card">Insight: Accidents peak during rush hours and low-visibility periods.</div>
+    <img src="st3.png" alt="Time of Day Accidents">
+  </div>
+
+  <!-- Sheet 4 -->
+  <button class="collapsible"><i class="fas fa-map-marker-alt"></i> Sheet 4: State-wise Accident Count</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> Identify accident-prone states.</div>
+    <div class="card">Insight: Few states contribute to a large proportion of accidents.</div>
+    <img src="st4.png" alt="State-wise Accidents">
+  </div>
+
+  <!-- Sheet 5 -->
+  <button class="collapsible"><i class="fas fa-exclamation-circle"></i> Sheet 5: Accident Severity Distribution</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> Understand severity composition of accidents.</div>
+    <div class="card">Insight: Severe accidents are fewer but have higher impact.</div>
+    <img src="st5.png" alt="Accident Severity">
+  </div>
+
+  <!-- Sheet 6 -->
+  <button class="collapsible"><i class="fas fa-car"></i> Sheet 6: Accidents by Vehicle Type</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> Analyze vehicle involvement.</div>
+    <div class="card">Insight: Certain vehicles are associated with higher accident severity.</div>
+    <img src="st6.png" alt="Vehicle Type Accidents">
+  </div>
+
+  <!-- Sheet 7 -->
+  <button class="collapsible"><i class="fas fa-cloud-sun-rain"></i> Sheet 7: Weather Condition vs Accident Severity</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> Analyze impact of weather.</div>
+    <div class="card">Insight: Adverse weather conditions lead to more severe accidents.</div>
+    <img src="st7.png" alt="Weather vs Severity">
+  </div>
+
+  <!-- Sheet 8 -->
+  <button class="collapsible"><i class="fas fa-road"></i> Sheet 8: Road Condition vs Accident Severity</button>
+  <div class="content">
+    <div class="card"><b>Why created:</b> Analyze influence of road conditions.</div>
+    <div class="card">Insight: Poor roads significantly increase risk of fatal accidents.</div>
+    <img src="st8.png" alt="Road Condition vs Severity">
+  </div>
+
+</section>
+
+<section id="dashboards">
+  <h2><i class="fas fa-tachometer-alt"></i> Dashboards</h2>
+
+  <!-- Dashboard 1 -->
+  <button class="collapsible"><i class="fas fa-map-marked-alt"></i> Dashboard 1: Accident Patterns & Risk Zones</button>
+  <div class="content">
+    <div class="card">Combines time and location analysis to understand accident hotspots.</div>
+    <div class="card">Key Finding: Accidents are concentrated in specific regions and times.</div>
+    <img src="d1.png" alt="Dashboard 1">
+  </div>
+
+  <!-- Dashboard 2 -->
+  <button class="collapsible"><i class="fas fa-exclamation-circle"></i> Dashboard 2: Accident Severity & Contributing Factors</button>
+  <div class="content">
+    <div class="card">Highlights severity, fatalities, and contributing factors.</div>
+    <div class="card">Key Finding: Severe accidents, though fewer, cause most deaths.</div>
+    <img src="d2.png" alt="Dashboard 2">
+  </div>
+</section>
+
+<section id="stories">
+  <h2><i class="fas fa-book-open"></i> Visual Stories</h2>
+
+  <!-- Story 1 -->
+  <button class="collapsible"><i class="fas fa-road"></i> Story 1: Accident Patterns</button>
+  <div class="content">
+    <p>Accidents are not random. Few states and time periods contribute disproportionately to totals.</p>
+    <img src="s1.png" alt="Story 1">
+    <img src="s2.png" alt="Story 1">
+  </div>
+
+  <!-- Story 2 -->
+  <button class="collapsible"><i class="fas fa-skull-crossbones"></i> Story 2: Accident Severity</button>
+  <div class="content">
+    <p>Most accidents are minor, but severe accidents cause majority of fatalities. Vehicle type and environment play a role.</p>
+    <img src="s3.png" alt="Story 2">
+    <img src="s4.png" alt="Story 2">
+  </div>
+</section>
+
+<section id="conclusion">
+  <h2><i class="fas fa-check-circle"></i> Conclusion</h2>
+  <div class="conclusion">
+    This portfolio reveals <span>critical insights</span> to help policy makers, traffic authorities, and drivers <span>prevent accidents</span> and save lives!<br>
+    With <span>interactive visualizations</span> and <span>data-driven insights</span>, India can move towards <span>safer roads</span> for everyone.
+  </div>
+</section>
+
+<script>
+  const coll = document.getElementsByClassName("collapsible");
+  for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  }
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+</body>
+</html>
